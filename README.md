@@ -6,5 +6,5 @@
 
 <b>To be protected:</b>
 
-You can install electrum in another file location (big brain)
+You can install electrum in another file location 
 </p>
